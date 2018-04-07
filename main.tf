@@ -5,13 +5,13 @@ provider "aws" {
 resource "aws_instance" "automationServer" {
   ami           = "ami-2757f631"
   instance_type = "t2.micro"
-  key_name      = "KpFirstAMI_KeyPair3"
+  key_name      = "<NAME_OF_KEY_PAIR>"
 
   provisioner "remote-exec" {
     connection {
       type        = "ssh"
       user        = "ubuntu"
-      private_key = "${file("KpFirstAMI_KeyPair3.pem")}"
+      private_key = "${file("<PEM_FILE_NAME>")}"
       agent       = false
     }
 
@@ -28,13 +28,13 @@ resource "aws_instance" "automationServer" {
 resource "aws_instance" "host1" {
   ami           = "ami-2757f631"
   instance_type = "t2.micro"
-  key_name      = "KpFirstAMI_KeyPair3"
+  key_name      = "<NAME_OF_KEY_PAIR>"
 
   provisioner "remote-exec" {
     connection {
       type        = "ssh"
       user        = "ubuntu"
-      private_key = "${file("KpFirstAMI_KeyPair3.pem")}"
+      private_key = "${file("<PEM_FILE_NAME>")}"
     }
 
     inline = [
